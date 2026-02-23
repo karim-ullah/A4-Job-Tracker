@@ -1,31 +1,49 @@
+//Array for Storing--
+
 let interviewList = [];
 let rejectedList = [];
 
+//currentStatus--
+
 let currentStatus = 'All';
+
+// total id of dashboard and tab section--
 
 let total = document.getElementById("total");
 let totalJob = document.getElementById("total-job");
 
+//main id for Delegation--
+
 const main = document.getElementById('main');
+
+//Getting All Jobs and count children length--
 
 const allJobs = document.getElementById("all-jobs");
 const allJobsCount = allJobs.children.length;
 
+//hide or show item count in Tabs--
+
 const intCountHide = document.getElementById("int-count-hide");
 const rejectCountHide = document.getElementById("reject-count-hide");
 
+// Tab Counter ID--
 const intContCount = document.getElementById("int-cont-count");
 const rejectContCount = document.getElementById("reject-cont-count");
+
+//INTERVIEW AND REJECTED Counter--
 
 const interviewCount = document.getElementById("interview-count");
 const rejectedCount = document.getElementById("rejected-count");
 
+//iD FOR noJobsCard--
 const noJobsCard = document.getElementById("no-job-available");
+
+//ID FOR filter Section
 
 const filterSection = document.getElementById("filter-section");
                                                                     
 
-// const badge = document.getElementById('badge');
+
 
 function calculator() {
   total.innerText = allJobsCount;
@@ -79,7 +97,7 @@ function toggleStyle(id) {
       renderingInterview();
     }
   } else if (id == "all-btn") {
-    // console.log('All');
+    
     allJobs.classList.remove("hidden");
     noJobsCard.classList.add("hidden");
     filterSection.classList.add('hidden');
@@ -88,7 +106,7 @@ function toggleStyle(id) {
     rejectCountHide.classList.add("hidden");
 
   } else if (id == "reject-btn") {
-    // console.log('Rejected');
+    
     allJobs.classList.add("hidden");
     
     rejectCountHide.classList.remove("hidden");
@@ -114,7 +132,7 @@ main.addEventListener("click", function (e) {
     
   if (e.target.classList.contains('interview')) {
     const parentNode = e.target.parentNode.parentNode.parentNode;
-    // const parentNode = e.target.closest('.job-card');
+    
 
     const jobTittle = parentNode.querySelector(".job-tittle").innerText;
     const jobPosition = parentNode.querySelector(".job-position").innerText;
@@ -151,7 +169,7 @@ main.addEventListener("click", function (e) {
   } else if(e.target.classList.contains('rejected')){
 
     const parentNode = e.target.parentNode.parentNode.parentNode;
-    // const parentNode = e.target.closest('.job-card');
+    
 
     const jobTittle = parentNode.querySelector(".job-tittle").innerText;
     const jobPosition = parentNode.querySelector(".job-position").innerText;
