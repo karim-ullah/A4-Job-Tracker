@@ -146,6 +146,8 @@ main.addEventListener("click", function (e) {
 
     calculator();
     
+    //function for reject button here -
+
   } else if(e.target.classList.contains('rejected')){
 
     const parentNode = e.target.parentNode.parentNode.parentNode;
@@ -160,12 +162,12 @@ main.addEventListener("click", function (e) {
     parentNode.querySelector(".badge").innerText = 'REJECTED';
 
     const jobCardInfo = {
-      jobTittle,
-      jobPosition,
-      jobType,
-      jobBadge: 'REJECTED',
-      jobNote,
-    };
+        jobTittle,
+        jobPosition,
+        jobType,
+        jobBadge: 'REJECTED',
+        jobNote,
+      };
 
     const itemExist = rejectedList.find(item => item.jobTittle == jobCardInfo.jobTittle);
 
