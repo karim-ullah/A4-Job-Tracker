@@ -25,17 +25,17 @@
 
         <div class="header">
             <h2 class="font-bold text-3xl">Job Application Tracker</h2>
-            <div class="header-container flex justify-between items-center mt-5">
+            <div class="header-container grid grid-cols-1 lg:grid-cols-3 justify-between items-center mt-5 gap-5">
 
-                <div class="bg-white p-3 rounded-s-lg w-[360px]">
+                <div class="bg-white p-3 rounded-s-lg">
                     <p class="text-xs">Total</p>
                     <p class="font-bold text-2xl" id="total">0</p>
                 </div>
-                <div class="bg-white p-3 rounded-s-lg w-[360px]">
+                <div class="bg-white p-3 rounded-s-lg">
                     <p class="text-xs" >Interview</p>
                     <p class="font-bold text-2xl text-[#10B981]" id="interview-count">0</p>
                 </div>
-                <div class="bg-white p-3 rounded-s-lg w-[360px]">
+                <div class="bg-white p-3 rounded-s-lg">
                     <p class="text-xs">Rejected</p>
                     <p class="font-bold text-2xl text-2xl" id="rejected-count">0</p>
                 </div>
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="buttons flex gap-2">
+            <div class="buttons flex flex-col gap-2 lg:flex-row lg:gap-2">
                 <button onclick="toggleStyle('all-btn')" id="all-btn" class=" bg-blue-500 py-3 px-8 text-white font-medium rounded-[4px] cursor-pointer">All</button>
                 <button onclick="toggleStyle('int-btn')" id="int-btn" class=" bg-white py-3 px-8 text-black font-medium rounded-[4px] cursor-pointer">Interview</button>
                 <button onclick="toggleStyle('reject-btn')" id="reject-btn" class=" bg-white py-3 px-8 text-black font-medium rounded-[4px] cursor-pointer">Rejected</button>
