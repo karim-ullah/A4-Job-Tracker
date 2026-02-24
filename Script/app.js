@@ -5,7 +5,7 @@ let rejectedList = [];
 
 //currentStatus--
 
-let currentStatus = 'All';
+let currentStatus = 'all-btn';
 
 // total id of dashboard and tab section--
 
@@ -61,6 +61,7 @@ calculator();
 //all btn on toggleStyle
 
 function toggleStyle(id) {
+  
 
   const allBtn = document.getElementById("all-btn");
   const intBtn = document.getElementById("int-btn");
@@ -79,51 +80,56 @@ function toggleStyle(id) {
   activeBtn.classList.add("bg-blue-500", "text-white");
 
   currentStatus = id;
+  renderCurrentTab();
+  
 
-  if (id == "int-btn") {
-
-    allJobs.classList.add("hidden");
-    
-    intCountHide.classList.remove("hidden");
-    rejectCountHide.classList.add("hidden");
-
-    noJobsCard.classList.add("hidden");
-
-    if (interviewCount.innerText == 0) {
-      noJobsCard.classList.remove("hidden");
-    } else {
-      // //interview section will be shown
-      filterSection.classList.remove('hidden');
-      renderingInterview();
-    }
-  } else if (id == "all-btn") {
-    
-    allJobs.classList.remove("hidden");
-    noJobsCard.classList.add("hidden");
-    filterSection.classList.add('hidden');
-
-    intCountHide.classList.add("hidden");
-    rejectCountHide.classList.add("hidden");
-
-  } else if (id == "reject-btn") {
-    
-    allJobs.classList.add("hidden");
-    
-    rejectCountHide.classList.remove("hidden");
-    intCountHide.classList.add("hidden");
-
-    if (rejectedCount.innerText == 0) {
-      noJobsCard.classList.remove('hidden');
-    } else {
-      // Rejected section will be shown here
-      
-      filterSection.classList.remove('hidden');
-      renderingRejected();
-    }
-  }
+  
 }
 
 //all btn toggleStyle close
+
+// rendering current Tab function--
+
+function renderCurrentTab() {
+
+  // all items hidden first--
+  
+  allJobs.classList.add('hidden');
+  filterSection.classList.add('hidden');
+  noJobsCard.classList.add('hidden');
+
+  intCountHide.classList.add('hidden');
+  rejectCountHide.classList.add('hidden');
+
+  // all btn--
+  if (currentStatus === 'all-btn') {
+    allJobs.classList.remove('hidden');
+  }
+
+  // Interview--
+  else if (currentStatus === 'int-btn') {
+    intCountHide.classList.remove('hidden');
+
+    if (interviewList.length > 0) {
+      filterSection.classList.remove('hidden');
+      renderingInterview();
+    } else {
+      noJobsCard.classList.remove('hidden');
+    }
+  }
+
+  // Rejected--
+  else if (currentStatus === 'reject-btn') {
+    rejectCountHide.classList.remove('hidden');
+
+    if (rejectedList.length > 0) {
+      filterSection.classList.remove('hidden');
+      renderingRejected();
+    } else {
+      noJobsCard.classList.remove('hidden');
+    }
+  }
+}
 
 //Event Delegation-
 
@@ -163,6 +169,7 @@ main.addEventListener("click", function (e) {
     }
 
     calculator();
+    renderCurrentTab()
     
     //function for reject button here -
 
@@ -199,9 +206,11 @@ main.addEventListener("click", function (e) {
 
     if (currentStatus == 'int-btn'){
         renderingInterview();
+      
     }
 
     calculator();
+    renderCurrentTab()
     
     
   }
